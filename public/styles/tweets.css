@@ -61,20 +61,23 @@ h2 {
   text-align: left;
 }
 
-.tweet-footer p,
+/*.tweet-footer p,
 .footer-icons {
   display: inline-block;
-}
+}*/
 
-.footer-icons .flag-icons, 
-.retweet-icons, 
-.love-icons {
-  display: inline-block;
+.footer-icons {
+  visibility: hidden;
 }
 
 .footer-icons {
   float: right;
+  padding-top: 15px;
   padding-right: 5px;
+}
+
+.tweets:hover .footer-icons {
+   visibility: visible;
 }
 
 .flag-icon {
