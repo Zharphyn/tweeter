@@ -1,0 +1,100 @@
+
+.tweets {
+  border-radius: 15px;
+  border: 1px solid #A1A4A8;
+  padding-bottom: 3em;
+  color: #EEE;
+}
+
+
+.tweet-header {
+  border-radius: 15px;
+  background-color: lightgrey;
+  padding-bottom: 100px;
+  padding-top: 15px
+
+}
+
+.tweet-header img,
+.email,
+h2 {
+  display: inline-block;
+}
+
+.tweet-header img {
+  float: left;
+  padding-left: 10px;
+  padding-top: 0px;
+  padding-right: 15px;
+}
+
+.tweet-header h2 {
+  float: left;
+  padding-left: 0px;
+  color: #040002;
+}
+
+.tweet-header .email {
+  float: right;
+  padding-right: 10px;
+  text-align: right;
+  color: #040002;
+
+}
+
+.tweet-body {
+  border-bottom: 1px solid #A1A4A8;
+  padding-bottom: 6em;
+}
+
+.tweet-body p {
+  padding-top: 20px;
+  padding-left: 5px;
+  float: left;
+  color: #040002;
+}
+
+.tweet-footer p {
+  padding-left: 5px;
+  color: #040002;
+  float: left;
+  text-align: left;
+}
+
+.tweet-footer p,
+.footer-icons {
+  display: inline-block;
+}
+
+.footer-icons .flag-icons, 
+.retweet-icons, 
+.love-icons {
+  display: inline-block;
+}
+
+.footer-icons {
+  float: right;
+  padding-right: 5px;
+}
+
+.flag-icon {
+  float: right;
+  width: auto;
+  max-height: 1em;  
+  padding-left: 5px;
+}
+
+.retweet-icon {
+  float: right;
+  width: auto;
+  max-height: 1em;
+  padding-left: 5px;
+}
+
+.love-icon {
+  float: right;
+  width: auto;
+  max-height: 1em;  
+  padding-left: 5px;
+}
+
