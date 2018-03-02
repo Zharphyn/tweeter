@@ -1,3 +1,7 @@
+article {
+  border-radius: 15px;
+ 
+}
 
 .tweets {
   border-radius: 15px;
@@ -54,17 +58,16 @@ h2 {
   color: #040002;
 }
 
+.tweet-footer {
+  padding-bottom: 75px;
+}
+
 .tweet-footer p {
   padding-left: 5px;
   color: #040002;
   float: left;
   text-align: left;
 }
-
-/*.tweet-footer p,
-.footer-icons {
-  display: inline-block;
-}*/
 
 .footer-icons {
   visibility: hidden;

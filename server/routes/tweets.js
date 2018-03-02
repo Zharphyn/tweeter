@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 "use strict";
+/*jslint node: true */
 
 const userHelper    = require("../lib/util/user-helper");
 

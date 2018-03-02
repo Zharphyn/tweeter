@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
 // A $( document ).ready() block.
-$( function() {
+$(() => {
     console.log( "ready!" );
  
 	$('textarea').on('keydown', function(event) {
