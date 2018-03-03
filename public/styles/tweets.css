@@ -3,7 +3,7 @@ article {
  
 }
 
-.tweets {
+article {
   border-radius: 15px;
   border: 1px solid #A1A4A8;
   padding-bottom: 3em;
@@ -59,7 +59,7 @@ h2 {
 }
 
 .tweet-footer {
-  padding-bottom: 75px;
+  padding-bottom: 15px;
 }
 
 .tweet-footer p {
@@ -79,7 +79,7 @@ h2 {
   padding-right: 5px;
 }
 
-.tweets:hover .footer-icons {
+article:hover .footer-icons {
    visibility: visible;
 }
 
