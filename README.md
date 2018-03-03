@@ -23,3 +23,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 !["Page header"](https://github.com/Zharphyn/tweeter/blob/master/docs/Tweeter%20Header%20and%20Compose%20box.png)
+!["The create tweet box can be hidden until needed"](https://github.com/Zharphyn/tweeter/blob/master/docs/Create%20tweet%20hidden.png)
+!["And when ready to create a new tweet, the box can be displayed"](https://github.com/Zharphyn/tweeter/blob/master/docs/Create%20tweet%20visible.png)
+!["Time to create your tweet"](https://github.com/Zharphyn/tweeter/blob/master/docs/Creating%20a%20tweet.png)
+!["And your tweet is posted"](https://github.com/Zharphyn/tweeter/blob/master/docs/Tweet%20created.png)
+!["When you hover over your tweet, extra options appear (will be implemented in a future release)"](https://github.com/Zharphyn/tweeter/blob/master/docs/Tweet%20with%20hover%20icons.png)
