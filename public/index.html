@@ -18,10 +18,11 @@
 
   <body>
 
-    <!-- Top nav bar (fixed) -->
+    <!-- Top nav bar -->
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png" >
       <span class="header">Tweeter</span>
+      <button id='compose-button'>Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
@@ -30,7 +31,7 @@
         <h2>Compose Tweet</h2>
         <form action="/tweets" method='POST'>
           <textarea name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
+          <input id="submit-button" type="submit" value="Tweet">
           <span class="counter">140</span>
         </form>
       </section>
@@ -44,6 +45,9 @@
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
+    <!-- Flash-message JS -->
+    <script type="text/javascript" src="/scripts/jquery.flash.js"></script>
+    
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>

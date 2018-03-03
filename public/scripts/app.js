@@ -21,6 +21,7 @@ function BuildHeader(tweetData){
 }
 
 function buildMiddle(tweetData) {
+	// Remove HTML tags to prevent injections
 	return $(`<div class="tweet-body clearfix"><p>${tweetData.content.text}</p></div>`);
 }
 
@@ -50,7 +51,20 @@ function createTweetElement(tweetData) {
 }
 
 $(() => {
-
+    //On click hander which toggles the visibility of the compose tweet section
+    //If the compose tweet section is visible, we set the focus to the compose
+    //tweet textarea
+    $("#compose-button").on('click', function (event) {
+      $(".new-tweet").slideToggle("slow", () => {
+        if ($(".new-tweet").is(':visible')) {
+          $(".new-tweet form textarea").focus();
+          $("#compose-button").css('backgroud-color: lightgreen');
+        } else {
+          $("#compose-button").css('backgroud-color: #eee');
+        }
+      });
+    });
+    
   function loadTweets() {
   	// that is responsible for fetching tweets from the http://localhost:8080/tweets page.
   	$(function() {
@@ -59,7 +73,6 @@ $(() => {
         method: 'GET',
         success: function (morePostsHtml) {
           renderTweets(morePostsHtml);
-          
         }
       });
     });
@@ -69,44 +82,65 @@ $(() => {
   function renderTweets (tweets) {
     $('section.tweets').empty();
 
-    tweets.forEach(function(element) {
+    tweets.reverse().forEach(function(element) {
       const tweetHtml = createTweetElement(element);
       // 4. Append to the list
       $('section.tweets').append(tweetHtml);
     });
   }
  
+  function postNewTweet(tweetText) {
+    //To pass to the post for writing the tweet
+    let tweet = {
+        text: tweetText
+    };
 
-   $('.new-tweet form').on('submit', function(event) {
+    $.post("/tweets", tweet, function () {
+        loadTweets();
+    });
+
+    //clear the form after we tweet
+    $(".new-tweet form textarea").val("");
+    $(".new-tweet form > .counter").text(140);
+  }
+
+  $('.new-tweet form').on('submit', function(event) {
     // prevent the default behaviour
     event.preventDefault();
     // get the data of the form
     var tweetText = $('.new-tweet textarea').val();
-  	// build the new tweet
-  	let newTweet = {
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": tweetText
-    },
-    "created_at": Date.now()
-  };
-  // add the new tweet to the 'database'
-  data.push(newTweet);
-  // redraw the tweets
-  loadTweets();
+    // Remove HTML tags to prevent injections (XSS)
+    tweetText = $(tweetText).text();
+
+    //If the tweetBody is null or an empty string we do not make the POST request
+    if (!tweetText) {
+    	$('.counter').text(140);
+        $('#submit-button').val('Your tweet is too short').attr("disabled", true).css('color', '#22262A');
+        return;
+    }
+    //Alert the user if their tweet is too long or empty and return
+    if (tweetText.length > 140) {
+        $('.counter').css('color', 'red');
+			$('#submit-button').val('Your tweet is too long').attr("disabled", true).css('color', 'red');
+        return;
+    }
+
+    //If we get here, the tweet is valid and we can make the POST request which is
+    //within the postNewTweet method
+    postNewTweet(tweetText);
+
+    // redraw the tweets
+    loadTweets();
 
   });
-  
 
+
+  
   loadTweets();
 });
+
+//POST request to add new tweet to mongo database (tweets collection)
+
+
 
 

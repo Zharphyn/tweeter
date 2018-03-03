@@ -21,3 +21,18 @@
 	float: left;
 
 }
+
+#compose-button {
+	border-radius: 10px;
+	height: 3em;
+	background-color: #eee
+	position: relative;
+	float: right;
+	margin-right: 50px;
+	margin-top: 1em;
+}
+
+#compose-button:hover{
+	background-color: lavender;
+
+}
