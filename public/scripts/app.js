@@ -82,7 +82,7 @@ $(() => {
   function renderTweets (tweets) {
     $('section.tweets').empty();
 
-    tweets.reverse().forEach(function(element) {
+    tweets.forEach(function(element) {
       const tweetHtml = createTweetElement(element);
       // 4. Append to the list
       $('section.tweets').append(tweetHtml);
